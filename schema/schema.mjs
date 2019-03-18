@@ -1,19 +1,22 @@
 import graphql from 'graphql'
+import axios from 'axios'
 
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = graphql
 
-const users = [
-  {
-    id: '23',
-    firstName: 'Bill',
-    age: 20
-  },
-  {
-    id: '43',
-    firstName: 'Billy',
-    age: 22
-  },
-]
+const CompanyType = new GraphQLObjectType({
+  name: 'Company',
+  fields:  {
+    id: {
+      type: GraphQLString
+    },
+    name: {
+      type: GraphQLString
+    },
+    description: {
+      type: GraphQLString
+    }
+  }
+})
 
 const UserType = new GraphQLObjectType({
   name: 'User',
@@ -26,6 +29,13 @@ const UserType = new GraphQLObjectType({
     },
     age: {
       type: GraphQLInt
+    },
+    company: {
+      type: CompanyType,
+      resolve(parentValue, args) {
+        return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`)
+          .then(res => res.data)
+      }
     }
   }
 })
@@ -41,7 +51,8 @@ const RootQuery = new GraphQLObjectType({
         }
       },
       resolve(parentValue, args) {
-        return users.find(user => user.id === args.id)
+        return axios.get(`http://localhost:3000/users/${args.id}`)
+          .then(res => res.data)
       }
     }
   }

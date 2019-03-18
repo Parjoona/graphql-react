@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "23",
+      "firstName": "Billy",
+      "age": 20,
+      "companyId": "2"
+    },
+    {
+      "id": "22",
+      "firstName": "Andreas",
+      "age": 22,
+      "companyId": "2"
+    },
+    {
+      "id": "21",
+      "firstName": "Alexandra",
+      "age": 24,
+      "companyId": "3"
+    },
+    {
+      "id": "20",
+      "firstName": "Alex",
+      "age": 29,
+      "companyId": "1"
+    },
+    {
+      "id": "19",
+      "firstName": "Ruben",
+      "age": 29,
+      "companyId": "2"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "microsoft",
+      "description": "Makes Windows slower"
+    },
+    {
+      "id": "2",
+      "name": "Alibaba Express",
+      "description": "Sells stuff"
+    },
+    {
+      "id": "3",
+      "name": "Amazon",
+      "description": "Sells books, kinda"
+    }
+  ]
+}
