@@ -11,6 +11,6 @@
     "graphql": "^14.1.1"
   },
   "scripts": {
-    "dev": "node --experimental-modules server.mjs"
+    "dev": "node --experimental-modules --loader ./loaders/custom-loader.mjs server.mjs"
   }
 }
