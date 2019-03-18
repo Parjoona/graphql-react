@@ -1,10 +1,14 @@
 import graphql from 'graphql'
 import axios from 'axios'
 
+// Query
 import UserType from './query/user'
 import CompanyType from './query/company'
 
-const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql
+// Mutation
+import mutation from './mutation/user'
+
+const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLInt, GraphQLNonNull } = graphql
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -37,5 +41,6 @@ const RootQuery = new GraphQLObjectType({
 })
 
 export default new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  mutation
 })
